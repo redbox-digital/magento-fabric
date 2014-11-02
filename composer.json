@@ -1,0 +1,14 @@
+{
+    "name": "rbd/magento-fabric",
+    "description": "A set of fabric tasks to make setting up local projects easier.",
+    "homepage": "https://github.com/redbox-digital/magento-fabric",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Max Bucknell",
+            "email": "max.bucknell@redboxdigital.com"
+        }
+    ],
+    "keywords": ["magento", "fabric"],
+    "bin": ["mage-fab.sh"]
+}
