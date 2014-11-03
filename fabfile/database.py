@@ -5,8 +5,7 @@ from .helpers import random_filename
 
 def create_database():
     """Create the database specified locally."""
-    with lcd(magento_root):
-        local('n98-magerun.phar db:create')
+    fab.local('n98-magerun.phar db:create')
 
 def database_pull(tmp_dir, magerun, magento_root):
     """Import a server's database.
@@ -22,9 +21,9 @@ def database_pull(tmp_dir, magerun, magento_root):
     remote_db = path.join(tmp_dir, db_filename)
     local_db = path.join('/tmp', db_filename)
 
-    with cd(magento_root):
-        run('%s db:dump -s "@development" -f %s' % (magerun, db_filename))
+    with fab.cd(magento_root):
+        fab.run('%s db:dump -s "@development" -f %s' % (magerun, db_filename))
 
-    get(db_filename, db_filename)
-    local('n98-magerun db:import %s' % db_filename)
+    fab.get(db_filename, db_filename)
+    fab.local('n98-magerun.phar db:import %s' % db_filename)
 
