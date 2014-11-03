@@ -1,5 +1,5 @@
 from fabric.api import task, env
-from . import database, media, compass, install, config
+from . import database, media, compass, config
 
 if config.ssh_is_enabled():
     env.hosts = [config.get('ssh-host')]
