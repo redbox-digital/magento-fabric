@@ -17,7 +17,7 @@ def database_pull(tmp_dir, magerun, magento_root):
     this advice is ignored, then each database import will overwrite
     the previous one and it will take a lot longer than it needs to.
     """
-    db_filename = random_filename('sql.gz')
+    db_filename = random_filename('sql')
     remote_db = path.join(tmp_dir, db_filename)
     local_db = path.join('/tmp', db_filename)
 
