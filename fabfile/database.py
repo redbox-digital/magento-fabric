@@ -22,8 +22,8 @@ def database_pull(tmp_dir, magerun, magento_root):
     local_db = path.join('/tmp', db_filename)
 
     with fab.cd(magento_root):
-        fab.run('%s db:dump -s "@development" -f %s' % (magerun, db_filename))
+        fab.run('%s db:dump -s "@development" -f %s' % (magerun, remote_db))
 
-    fab.get(db_filename, db_filename)
-    fab.local('n98-magerun.phar db:import %s' % db_filename)
+    fab.get(remote_db, local_db)
+    fab.local('n98-magerun.phar db:import %s' % local_db)
 
