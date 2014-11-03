@@ -1,4 +1,5 @@
 import hashlib
+import os
 
 def random_filename(extension):
     """A random filename (with optional extension)"""
