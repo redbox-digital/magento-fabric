@@ -11,10 +11,6 @@ else:
     pass
 
 @task
-def hello_world():
-    print 'hello, world'
-
-@task
 def create_database():
     """Create the database specified in local.xml."""
     database.create_database()
