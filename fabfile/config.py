@@ -22,7 +22,7 @@ _config = json.load(open(_find_config_file()))
 
 def get(*args, **kwargs):
     """Proxy to dict.get()"""
-    _config.get(*args, **kwargs)
+    return _config.get(*args, **kwargs)
 
 def ssh_is_enabled():
     return get('ssh-host') is not None
