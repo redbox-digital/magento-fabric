@@ -1,7 +1,7 @@
 import os.path as path
 from fabric.api import local
 
-def compass_compile(magento_root):
+def compass_compile():
     """Compile all compass projects.
 
     Find all Compass projects and compile them. This will not compile
@@ -9,34 +9,34 @@ def compass_compile(magento_root):
     us compiled, and use an unknown version of Compass. And they will
     not change.
     """
-    compass_projects = compass_project_roots(magento_root)
+    compass_projects = compass_project_roots()
 
     for compass_project in compass_projects:
         compile_project(compass_project)
 
-def compass_clean(magento_root):
+def compass_clean():
     """Clean all compass projects.
 
     Find all Compass projects and remove all generated files, but not
     those in `rwd` theme.
     """
-    compass_projects = compass_project_roots(magento_root)
+    compass_projects = compass_project_roots()
     for compass_project in compass_projects:
         clean_project(compass_project)
 
-def compass_project_roots(magento_root):
+def compass_project_roots():
     """Find all Compass projects.
 
     Search for `config.rb` in `skin/frontend`, and convert this into
     a list. This will not return any Compass projects in the `rwd`
     namespace.
     """
-    configs = compass_configs(magento_root)
+    configs = compass_configs()
     return [path.dirname(config) for config in configs]
 
-def compass_configs(magento_root):
+def compass_configs():
     """Find all config.rb files not in `rwd`"""
-    path = path.join(magento_root, 'skin/frontend')
+    path = 'skin/frontend'
     found = local('find -L %s -name config.rb' % path, capture=True)
     return [config for config in found.split('\n') if is_valid(config)]
 

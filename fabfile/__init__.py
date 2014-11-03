@@ -34,12 +34,10 @@ def media_pull():
 @task
 def compass_compile():
     """Compile all compass projects."""
-    magento_root = config.get('magento-root')
-    compass.compass_compile(magento_root)
+    compass.compass_compile()
 
 @task
 def compass_clean():
     """Clean all compass projects."""
-    magento_root = config.get('magento-root')
-    compass.compass_clean(magento_root)
+    compass.compass_clean()
 
