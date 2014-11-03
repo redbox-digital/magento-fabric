@@ -6,7 +6,7 @@ if config.ssh_is_enabled():
     env.port = config.get('ssh-port')
     env.user = config.get('ssh-username')
     env.password = config.get('ssh-password')
-    env.key_filename = config.get('ssh-certificate')
+    env.key_filename = config.get('ssh-key-filename')
 else:
     pass
 
