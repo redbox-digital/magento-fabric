@@ -47,11 +47,11 @@ as optional, the value they hold is the default:
 ```javascript
 {
   // A valid hostname:
-  "ssh-host": "",
+  "ssh-host": /* unset */,
   // (optional) Port to connect to:
   "ssh-port": 22,
   // Username to connect as:
-  "ssh-user": "",
+  "ssh-user": /* unset */,
   // (optional) SSH password:
   "ssh-password": /* unset */,
   // (optional) Location of SSH key to connect with:
@@ -62,7 +62,7 @@ as optional, the value they hold is the default:
   // (optional) Temporary directory on the server:
   "tmp-dir": "/tmp",
   // Location of Magento installation on the server:
-  "magento-root": ""
+  "magento-root": /* unset */
 }
 ```
 

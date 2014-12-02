@@ -18,7 +18,13 @@ def _find_config_file():
         else:
             trial_dir = trial_parent
 
-_config = json.load(open(_find_config_file()))
+_config = {
+    "ssh-port": 22,
+    "magerun": "/usr/local/bin/n98-magerun.phar",
+    "tmp-dir": "/tmp"
+}
+
+_config.update(json.load(open(_find_config_file())))
 
 def get(*args, **kwargs):
     """Proxy to dict.get()"""
